@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Flip Flop</title>
+  <meta name="description" content="Flip Flop: Web-based puzzle game">
+  <meta name="author" content="Vieri Vincent">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<style>
+  .component-center {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  .playing-grid {
+    height: 30vw;
+    width: 30vw;
+    border-style: solid;
+    border-width: 5px;
+  }
+
+  td {
+    width: 10vw;
+    height: 10vw;
+  }
+
+  td:hover {
+    opacity: 0.5;
+  }
+</style>
+
+<body>
+  <main class="component-center">
+    <p class="display-4 my-5">Flip Flop: Level 1-1</p>
+
+    <div id="gameGrid">
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="script/board.js"></script>
+  <script>
+    var a = new Board(size=4, start_config="3,5,7")
+    renderGameGrid(a);
+
+    function tileClicked(x){
+      updateGameGrid(a,JSON.parse(x))
+    }
+  </script>
+</body> 
+</html>
